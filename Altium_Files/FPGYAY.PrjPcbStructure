@@ -1,8 +1,8 @@
-Record=TopLevelDocument|FileName=FPGA_AUDIO.SchDoc|SheetNumber=7
-Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_DDR3_Interface.SchDoc|SheetNumber=8
-Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_DECOUP.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_ETH.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_PD.SchDoc|SheetNumber=3
+Record=TopLevelDocument|FileName=FPGA_AUDIO.SchDoc|SheetNumber=6
+Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_DDR3_Interface.SchDoc|SheetNumber=7
+Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_DECOUP.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_ETH.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_PD.SchDoc|SheetNumber=2
 Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_PWRIN.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_USB.SchDoc|SheetNumber=6
+Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=FPGA_USB.SchDoc|SheetNumber=5
 Record=NoMainPathDocument|SourceDocument=FPGA_AUDIO.SchDoc|FileName=Sheet1.SchDoc|SheetNumber=1
