@@ -1,26 +1,22 @@
 # FPGYAY
-In progress Artix-7 Based FPGA development board
-
-## Current Progress
-
-## TODO
-- Add JTAG connection (not from USB)
-- 
+In progress Artix-7 Based FPGA development board, currently in schematic capture phase 
 
 ## Power Distribution
-The Artix 7 requires 3 different voltages, and the DDR3L memory requries another voltage level:
+The Artix 7 itself requires 3 different voltages, and the DDR3L memory requries another two voltage levels:
 1. VCCINT and VCCBRAM: 1V, internal voltage for CLBs and on chip RAM
 2. VCCAUX: 1.8V, auxillary voltage for other internal circuitry
 3. VCCIO: ~1.2V - ~3.3V, voltage for IO banks (one for each bank)
 4. DDR3L: 1.35V, voltage for DDR3 low power
+5. DDR VREF: 1/2 DDR3L (0.675V)
 
 In addition, there is a recommended power-up sequence specified by Xilinx: VCCINT -> VCCBRAM -> VCCAUX -> VCCO
 
-There are other VCC pins, but they can share the same voltage level (although not the same source) as the ones listed above. This board will use a quad-buck converter chip to step down 5V (either from USB VBus or external power supply) to all desried levels. In addition, the enable pin for each individual buck will connected to the voltage rail of the previous voltage level to ensure proper power sequencing. The specific chip used here is the ADP5052, and the calculations for component values are outlined in the datasheet. This chip also has a fifth voltage output pin which supplies voltage from an LDO. This pin is unused for now. 
+Below is the completed schematic for the main power distribution system 
+![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/499739c8-85f9-4b9f-a947-bfd6391e638e)
+The main voltages (1-4 from above) are produced by stepping down 5V either from USB or a barrel jack using a quad-buck converter. The specific one used is the ADP5052, and calculations are provided on the datasheet. The parameters used in the calculations are as follows:
+- 
 
-Below is the completed schematic page for the quad-buck converter
-
-![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/1491945d-57e8-4511-b0a1-8486f8cb4a76)
+In addition, there is logic to prevent output contention if both a barrel jack and USB connector are connected. 
 
 
 ## Ethernet Interface 
