@@ -12,40 +12,53 @@ The Artix 7 itself requires 3 different voltages, and the DDR3L memory requries 
 In addition, there is a recommended power-up sequence specified by Xilinx: VCCINT -> VCCBRAM -> VCCAUX -> VCCO
 
 Below is the completed schematic for the main power distribution system 
+
 ![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/499739c8-85f9-4b9f-a947-bfd6391e638e)
-The main voltages (1-4 from above) are produced by stepping down 5V either from USB or a barrel jack using a quad-buck converter. The specific one used is the ADP5052, and calculations are provided on the datasheet. The parameters used in the calculations are as follows:
-- 
+The main voltages (1-4 from above) are produced by stepping down 5V either from USB or a barrel jack using a quad-buck converter. The specific one used is the ADP5052, and formulas are provided on the datasheet. The parameters used in the calculations are as follows:
 
-In addition, there is logic to prevent output contention if both a barrel jack and USB connector are connected. 
+- Switching Frequency: ~600kHz
+- Max Ouput Current: 8A
+- Step Transient: 60% of max current
+- Output Ripple: ±1% of max current 
 
+In addition, there is logic to prevent output contention if both a barrel jack and USB connector are connected. The barrel jack always has priority, if it is connected, then the 5V power rail from the USB connector is disabled. The logic is schematic below: 
+
+![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/8dfb406b-65a0-4b4c-8801-849ca9a39297)
+
+The barrel jack is assume to be around 12V, stepping it down to 5V. Due to the output contention prevention above, the 5V input into the quad-buck is shared among both input modes. 
 
 ## Ethernet Interface 
 The schematic for the interface itself is completed, but the pins on the FPGA have not been chosen yet (this depends purely on PCB layout considerations)
 
-This board will be compatable with 10/100Base-T, with an RMII interface between the FPGA and PHY. The PHY chosen is the DP83848 and will be configured to run at 100Base-T by the bootstrap pins specified in the datasheet. The PHY address can be configured in hardware by using the DIP switches. Each pin connected to the DIP switch has a weak internal pulldown resistor, so an open switch is low, and closed switch is high. Alternatively, both the PHY address and speed can be programmed through the MDIO interface, but must be programmed each time the board is powered on. 
+The PHY chosen is the DP83848, which is RMII/MII compatible, which means it is also 10/100Base-T compatible. This board will use an RMII interface between the FPGA and PHY. The PHY will be configured to run at 100Base-T by the bootstrap pins specified in the datasheet. The PHY address can be configured in hardware by using the DIP switches. Each pin connected to the DIP switch has a weak internal pulldown resistor, so an open switch is low, and closed switch is high. Alternatively, both the PHY address and speed can be programmed through the MDIO interface, but must be programmed each time the board is powered on. 
 
 The 50Mhz clock for RMII is provided by a CMOS oscillator. 
 
 Below is the completed schematic page for the RMII interface
 
-![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/088b04b5-96a6-4d7f-b282-79d82e6af0a1)
+![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/c4e91a69-209c-4720-9682-d300be647374)
+
+The yellow LED indicates a good link when static, and data transfer when blinking. The green LED should always be off. 
 
 ## USB Interface 
 The USB bus connects to a USB to bridge (FT2232HQ), which will be configured for JTAG and UART. The USB interface only supports USB 2.0, although a USB 3.0 interface may be added in the future. The FT2232HQ is configured using FTDI's propreitary software, after which the configuration is stored in EEPROM. 
 
-Below is the completed schematic page for the USB interface. Note that there are some parts that are incomplete (no reference voltage for XADC on FPGA), but they are independent from the USB interface, they just happen to be on the same schematic symbol
+Below is the completed schematic page for the USB interface. 
 
-![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/f0cd28b9-ca86-4b23-b3dd-4d46f42ed582)
+![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/36512ebd-f8ba-4a5c-9a3f-b7d3840a09b8)
+
+## Configuration Setup
+The configuration is set by configuration pins M0_[0:2], the default value should be set to 001, although the option to set them with DIP switches is included. The default configuration is the Master SPI configuration, which also allows for JTAG programming. The configuration schematic is found above with the USB interface. 
 
 ## Audio Interface 
 The audio interface is provided by the LM4550B audio codec, which is widely used in consumer electronics. There will be three connectors: Line In, Line Out and Mic In. The LM4550B communicates with the FPGA over AC97'. The LM4550B has two voltage rails, 5V analog and 3.3V digital, and the datasheet recommends seperate analog and digital grounds. However, I have kept analog and digital grounds the same in order to reduce complexity, and minimize possible error, as split grounds require more complex routing, and are often unnessasary. 
 
 Below is the schematic of the completed audio interface 
 
-![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/d0eeb176-5b55-455a-87d4-4baca390e1a5)
+![image](https://github.com/Jerry123213/FPGYAY/assets/65368615/7f8312e2-1b1c-4f4d-ad38-d76b723d8e0d)
 
 ## DDR3L Interface
-The board will use a DDR3 interface, but specifically use DDR3 low power in order to reduce power consumption. The connections to the FPGA are temporary, as it largely depends on the physical layout of the components and which pins make the most sense to route where. However, it's recommended to keep each bus in the same FGPA byte group.
+The board will use a DDR3 interface, but specifically use DDR3 low power in order to reduce power consumption. In addition, a reference voltage 
 
 Below is the schematic for the DDR3 interface with temporary connections to the FPGA
 
