@@ -135,6 +135,23 @@ GenerateClassCluster=0
 DocumentUniqueId=MWOMVAII
 
 [Document6]
+DocumentPath=FPGA_OUTPUTS.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=8
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=XFZTULOY
+
+[Document7]
 DocumentPath=FPGA_PD.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -151,7 +168,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VJZKTZJS
 
-[Document7]
+[Document8]
 DocumentPath=FPGA_DECOUP.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -168,7 +185,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EATWAXDG
 
-[Document8]
+[Document9]
 DocumentPath=FPGA_ETH.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -185,7 +202,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KWDCZIOS
 
-[Document9]
+[Document10]
 DocumentPath=FPGA_USB.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -202,7 +219,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GXBLDUKB
 
-[Document10]
+[Document11]
 DocumentPath=FPGA_AUDIO.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -219,7 +236,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IFGJPUWC
 
-[Document11]
+[Document12]
 DocumentPath=FPGA_DDR3_Interface.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -236,7 +253,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JTAVFACH
 
-[Document12]
+[Document13]
 DocumentPath=PCB1.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -253,7 +270,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RJHOKYIJ
 
-[Document13]
+[Document14]
 DocumentPath=BIG_FPGA.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -270,7 +287,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WCYNCKFC
 
-[Document14]
+[Document15]
 DocumentPath=BIG_FPGA.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
