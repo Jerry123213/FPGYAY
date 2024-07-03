@@ -40,6 +40,11 @@ Below is the completed schematic page for the RMII interface
 
 The yellow LED indicates a good link when static, and data transfer when blinking. The green LED should always be off. 
 
+### Layout Guidelines 
+- The interface between the RJ45 and the PHY should be galvanically isolated from the rest of the PCB.
+- MDI traces should be routed with a differential impedance of 100 ohms
+- RMII traces should be routed with a single ended impedance of 50 ohms TX and RX traces must be length matched with a difference of 1.27mm at most 
+
 ## USB Interface 
 The USB bus connects to a USB to bridge (FT2232HQ), which will be configured for JTAG and UART. The USB interface only supports USB 2.0, although a USB 3.0 interface may be added in the future. The FT2232HQ is configured using FTDI's propreitary software, after which the configuration is stored in EEPROM. 
 
