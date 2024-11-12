@@ -1,0 +1,8 @@
+Record=TopLevelDocument|FileName=AUDIO_INTERFACE.SchDoc|SheetNumber=8
+Record=NoMainPathDocument|SourceDocument=AUDIO_INTERFACE.SchDoc|FileName=DDR3L_SDRAM.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=AUDIO_INTERFACE.SchDoc|FileName=ETH_RGMII.SchDoc|SheetNumber=7
+Record=NoMainPathDocument|SourceDocument=AUDIO_INTERFACE.SchDoc|FileName=FPGA_ARTIX_7.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=AUDIO_INTERFACE.SchDoc|FileName=FPGA_PWR.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=AUDIO_INTERFACE.SchDoc|FileName=GPIO_CONN.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=AUDIO_INTERFACE.SchDoc|FileName=HDMI_INTERFACE.SchDoc|SheetNumber=6
+Record=NoMainPathDocument|SourceDocument=AUDIO_INTERFACE.SchDoc|FileName=USB_INTERFACE.SchDoc|SheetNumber=2
